@@ -3,18 +3,19 @@
     "express": "^4.18.2",
     "hbs": "^4.2.0",
     "mongoose": "^8.0.4",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "validator": "^13.11.0"
   },
   "name": "mernbackend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "dev": "nodemon src/app.js -e js,hbs",
+    "start": "node src/spp.js"
   },
   "keywords": [],
   "author": "\"Rukshali\"",
   "license": "ISC",
-  "devDependencies": {},
   "description": ""
 }
