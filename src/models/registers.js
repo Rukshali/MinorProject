@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const YoutubeRegistration = new mongoose.Schema({
+const validator = require("validator");
+
+const UserRegistration = new mongoose.Schema({
     name: {
         type: "string",
         required:true
@@ -7,11 +9,17 @@ const YoutubeRegistration = new mongoose.Schema({
     email: {
         type: "string",
         required:true,
-        unique:true
+        unique:[true, "Email already present"],
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Invalid Email")
+            }
+        }
       },
     phone: {
         type: Number,
         required:true,
+        min:10,
         unique:true
       },
     city: {
@@ -29,5 +37,5 @@ const YoutubeRegistration = new mongoose.Schema({
 })
 //creating collection
 
-const Register = new mongoose.model("Registeration",YoutubeRegistration);
-module.exports= Register;
+const Register = new mongoose.model('Registeration', UserRegistration);
+module.exports = Register;
